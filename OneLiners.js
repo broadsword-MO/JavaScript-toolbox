@@ -46,23 +46,14 @@ console.log(arrIsEmpty(arr1)); // false
 //                       Assorted
 // ===================================================
 // ================== Color generators ===================
-// *LINK ColorGenerators.js
+// * LINK ColorGenerators.js
 
 // ================== Number generators ===================
-// *LINK NumberGenerators.js
+// * LINK NumberGenerators.js
 
 // Reverse a string. Spread operator handles non-standard stuff fine, but .split() doesn't
 const reverseString = (str) => [...str].reverse().join('');
 console.log(reverseString('java😒script')); // 'tpircs😒avaj'
-
-// ================== Copy to clipboard for browsers/web apps ===================
-// This works for most, per caniuse.com. For 100% support, use an `input` and copy its contents
-const copyToClipboard = (text) =>
-    navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
-console.log(copyToClipboard('Hello World!'));
-// And also, to get the text that a user selects or highlights on a web page
-const getSelectedText = () => window.getSelection().toString();
-console.log(getSelectedText);
 
 // ================== Unique Elements ===================
 // JavaScript's implementation of a "hash list" is called a "Set". This pulls all the unique elements from an array
@@ -70,24 +61,9 @@ const getUnique = (arr) => [...new Set(arr)];
 const arr = [1, 1, 2, 3, 3, 4, 4, 4, 5, 5];
 console.log(getUnique(arr)); // [ 1, 2, 3, 4, 5 ]
 
-// ================== Detect Dark Mode for browsers/web apps ===================
-const isDarkMode = () =>
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
-console.log(isDarkMode());
-
-// ================== Scroll to top ===================
-// 'behavior: "smooth"' is optional. Exchange "start" for "end" to scroll to bottom
-const scrollToTop = (element) =>
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
 // ================== Extract domain name from an email ===================
 let getDomain = (email) => email.substring(email.indexOf('@') + 1);
 console.log(getDomain('admin@ashishdonga.me')); // ashishdonga.me
-
-// ================== Edit anything ===================
-document.designMode = "on"
-
 
 // ================== Sleep Function ===================
 // JavaScript has NO built-in sleep function to wait for a given duration before continuing the execution flow of the code.
@@ -103,6 +79,34 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const sleeper = (() => {
     let doneWaiting = true;
-    console.log(Date(),'sleep');
-    setTimeout(() => console.log(Date(),'awake'), 5000);
+    console.log(Date(), 'sleep');
+    setTimeout(() => console.log(Date(), 'awake'), 5000);
 })();
+
+// ===================================================
+//         For web apps/browsers specifically
+// ===================================================
+
+// ================== Edit anything(make any page editable) ===================
+document.designMode = 'on';
+
+// ================== Copy to clipboard for browsers/web apps ===================
+// This works for most, per caniuse.com. For 100% support, use an `input` and copy its contents
+const copyToClipboard = (text) =>
+    navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
+console.log(copyToClipboard('Hello World!'));
+
+// And also, to get the text that a user selects or highlights on a web page
+const getSelectedText = () => window.getSelection().toString();
+console.log(getSelectedText());
+
+// ================== Detect Dark Mode for browsers/web apps ===================
+const isDarkMode = () =>
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log(isDarkMode());
+
+// ================== Scroll to top ===================
+// 'behavior: "smooth"' is optional. Exchange "start" for "end" to scroll to bottom
+const scrollToTop = (element) =>
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });

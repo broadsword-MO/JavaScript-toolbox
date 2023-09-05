@@ -1,7 +1,7 @@
 // ===================================================
 //                   Random Colors
 // ===================================================
-// * LINK from Medium: https://tapajyoti-bose.medium.com/7-killer-one-liners-in-javascript-33db6798f5bf
+// LINK from Medium: https://tapajyoti-bose.medium.com/7-killer-one-liners-in-javascript-33db6798f5bf
 
 // Generate a random hex color
 // Take the random number, convert to hexadecimal, cut off the '0.' at the beginning, add a zero on the end if the hex number is shorter than 6 characters

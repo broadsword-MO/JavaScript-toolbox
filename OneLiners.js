@@ -1,10 +1,10 @@
 // ===================================================
 //                      Arrays
 // ===================================================
-// * LINK from Medium: https://tapajyoti-bose.medium.com/7-killer-one-liners-in-javascript-33db6798f5bf
-// * LINK From Medium https://javascript.plainenglish.io/javascript-one-liners-3fe0b0155311
-// * LINK from Syntax.fm https://syntax.fm/show/419/js-one-liners
-// * LINK from Dev.to https://dev.to/ashishdonga/7-killer-javascript-one-liners-you-must-know-nhm
+// LINK from Medium: https://tapajyoti-bose.medium.com/7-killer-one-liners-in-javascript-33db6798f5bf
+// LINK From Medium https://javascript.plainenglish.io/javascript-one-liners-3fe0b0155311
+// LINK from Syntax.fm https://syntax.fm/show/419/js-one-liners
+// LINK from Dev.to https://dev.to/ashishdonga/7-killer-javascript-one-liners-you-must-know-nhm
 
 // ================== Numbers ===================
 // Get the smallest numerical element of an array. Replace Math.min() for Math.max() to get largest number
@@ -22,7 +22,7 @@ const array = [5, 13, 9, 11, 10, 15, 7]; // Totals 70
 console.log(getAverage(array)); // 10
 
 // ================== Any ===================
-// Shuffle an array in place,such as for a game with a deck of cards. Has 0(n log n) complexity. Note: Array.sort() mutates the array
+// Shuffle an array in place,such as for a game with a deck of cards. Has 0(n log n) time complexity. Note: Array.sort() mutates the array, but the spread op first makes a copy of it
 const shuffleArray = (arr) => [...arr].sort(() => Math.random() - 0.5);
 const array = [13, 7, 11, 3, 9, 15, 22];
 const abc = ['a', 'c', 'b'];
@@ -46,10 +46,10 @@ console.log(arrIsEmpty(arr1)); // false
 //                       Assorted
 // ===================================================
 // ================== Color generators ===================
-// * LINK ColorGenerators.js
+// LINK ColorGenerators.js
 
 // ================== Number generators ===================
-// * LINK NumberGenerators.js
+// LINK NumberGenerators.js
 
 // Reverse a string. Spread operator handles non-standard stuff fine, but .split() doesn't
 const reverseString = (str) => [...str].reverse().join('');
@@ -78,7 +78,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 // })();
 
 const sleeper = (() => {
-    let doneWaiting = true;
+    let doneWaiting = true; // Needs to be implemented still
     console.log(Date(), 'sleep');
     setTimeout(() => console.log(Date(), 'awake'), 5000);
 })();
@@ -91,14 +91,14 @@ const sleeper = (() => {
 document.designMode = 'on';
 
 // ================== Copy to clipboard for browsers/web apps ===================
+// To get the text that a user selects or highlights on a web page
+const getSelectedText = () => window.getSelection().toString();
+console.log(getSelectedText());
+
 // This works for most, per caniuse.com. For 100% support, use an `input` and copy its contents
 const copyToClipboard = (text) =>
     navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
 console.log(copyToClipboard('Hello World!'));
-
-// And also, to get the text that a user selects or highlights on a web page
-const getSelectedText = () => window.getSelection().toString();
-console.log(getSelectedText());
 
 // ================== Detect Dark Mode for browsers/web apps ===================
 const isDarkMode = () =>
@@ -110,3 +110,8 @@ console.log(isDarkMode());
 // 'behavior: "smooth"' is optional. Exchange "start" for "end" to scroll to bottom
 const scrollToTop = (element) =>
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+// ================== Refresh/Reload a Page Automatically ===================
+// Refresh after a fixed time use the setTimeOut() method. Using the code below our web page will reload every 3 seconds:
+
+setTimeout(() => {document.location.reload()}, 3000);
